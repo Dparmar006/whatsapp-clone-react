@@ -1,0 +1,39 @@
+.tile {
+  color: #eeeeee;
+  display: flex;
+  padding: 0.5em;
+  padding-top: 0;
+  border-bottom: 0.1px solid rgba(170, 170, 170, 0.404);
+  transition: all 350ms ease-in-out;
+  cursor: pointer;
+}
+.tile:hover {
+  background-color: #eeeeee17;
+}
+
+.tile-dp {
+  font-size: 2.5rem;
+}
+
+.tile-msginfo {
+  margin-left: 0.5em;
+  align-self: center;
+  flex: 1;
+}
+.tile-name {
+  margin: 4px 0;
+}
+.tile-message {
+  margin: 4px 0;
+  font-size: 14px;
+}
+.tile-message i {
+  margin-right: 4px;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+.tile-time {
+  margin-top: 0.2em;
+  font-size: 0.9rem;
+  color: #eeeeeeb2;
+}
