@@ -1,0 +1,31 @@
+.chatscreen {
+  height: 100%;
+  width: 100%;
+}
+.chatscreen__container {
+  height: 90vh;
+  display: grid;
+}
+.chatscreen__inputs {
+  display: flex;
+  align-self: end;
+  align-items: center;
+  padding: 0 0.5em;
+  background-color: #2a2f32;
+}
+.chatscreen__buttons .icon-button {
+  font-size: 1.5em;
+  padding: 0.5em;
+  color: #828689;
+}
+.chatscreen__chat-input {
+  flex: 1;
+  padding: 0.6em;
+  margin: 0.6em 0;
+  outline: none;
+  border: none;
+  border-radius: 24px;
+  background-color: #33383b;
+  color: #ddd;
+  font-size: 1.04rem;
+}

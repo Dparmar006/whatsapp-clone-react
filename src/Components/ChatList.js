@@ -11,6 +11,20 @@ const ChatList = () => {
       <ChatTile />
       <ChatTile />
       <ChatTile msgStatus="fa fa-check-circle" />
+      <ChatTile msgStatus="fa fa-check-circle" />
+      <ChatTile msgStatus="fa fa-check-circle" />
+      <ChatTile msgStatus="fa fa-check-circle" />
+      <ChatTile msgStatus="fa fa-check-circle" />
+      <ChatTile msgStatus="fa fa-check-circle" />
+      <ChatTile msgStatus="fa fa-check-circle" />
+      <ChatTile msgStatus="fa fa-check-circle" />
+      <ChatTile msgStatus="fa fa-check-circle" />
+      <ChatTile msgStatus="fa fa-check-circle" />
+      <ChatTile msgStatus="fa fa-check-circle" />
+      <ChatTile msgStatus="fa fa-check-circle" />
+      <ChatTile msgStatus="fa fa-check-circle" />
+      <ChatTile msgStatus="fa fa-check-circle" />
+      <ChatTile msgStatus="fa fa-check-circle" />
     </div>
   );
 };

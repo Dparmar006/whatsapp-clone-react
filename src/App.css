@@ -1,7 +1,11 @@
 main {
   display: flex;
+  position: relative;
 }
 
+.chatlist {
+  width: 25%;
+}
 .chatscreen {
   height: 90vh;
   flex: 1;

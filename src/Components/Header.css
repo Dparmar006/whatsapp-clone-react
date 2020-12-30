@@ -10,7 +10,8 @@
   display: flex;
   justify-content: space-between;
   min-width: 16rem;
-  max-width: 24rem;
+  width: 22%;
+  max-width: 30%;
   padding: 0 1.2em;
   align-items: center;
   border-right: 1px solid rgba(221, 221, 221, 0.2);
@@ -30,7 +31,7 @@
   padding: 0.8em;
   /* margin-left: 0.5rem; */
   color: #ddd;
-  border-radius: 50%;
+  border-radius: 150px;
   border: none;
   transition: all 0.3s;
   font-size: 1.01rem;

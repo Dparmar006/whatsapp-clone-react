@@ -4,16 +4,16 @@
   padding: 0.5em;
   padding-top: 0;
   border-bottom: 0.1px solid rgba(170, 170, 170, 0.404);
-  transition: all 350ms ease-in-out;
+  transition: all 250ms ease-in-out;
   cursor: pointer;
 }
 
 .tile:hover {
-  background-color: #eeeeee17;
+  background-color: #323739;
 }
 
 .tile-dp {
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 .tile-msginfo {
