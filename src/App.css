@@ -1,0 +1,8 @@
+main {
+  display: flex;
+}
+
+.chatscreen {
+  height: 90vh;
+  flex: 1;
+}

@@ -1,18 +1,17 @@
 import React from "react";
-import ChatTile from "./Components/ChatTile";
+import ChatList from "./Components/ChatList";
 import Header from "./Components/Header";
 import "./App.css";
+import ChatScreen from "./Components/ChatScreen";
 
 function App() {
   return (
     <div className="app">
       <Header />
-      <ChatTile msgStatus="fa fa-check-circle" />
-      <ChatTile />
-      <ChatTile msgStatus="fa fa-check-circle" />
-      <ChatTile msgStatus="fa fa-check-circle" />
-      <ChatTile />
-      <ChatTile />
+      <main>
+        <ChatList />
+        <ChatScreen />
+      </main>
     </div>
   );
 }
