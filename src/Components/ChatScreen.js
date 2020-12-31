@@ -4,6 +4,34 @@ const ChatScreen = ({ name }) => {
   return (
     <section className="chatscreen">
       <div className="chatscreen__container">
+        <div className="chatscreen__message-container">
+          <div className="message-incoming">Hello</div>
+          <div className="message-incoming">
+            Mollit officia aliqua reprehenderit tempor aliqua ex nostrud magna
+            culpa magna ad elit. Ad proident ad incididunt velit. Veniam eu
+            consectetur aliqua eu pariatur. Fugiat dolor aliqua reprehenderit
+            adipisicing excepteur ad.
+          </div>
+          <div className="message-outgoing">Hello</div>
+          <div className="message-outgoing">
+            Mollit officia aliqua reprehenderit tempor aliqua ex nostrud magna
+            culpa magna ad elit. Ad proident ad incididunt velit. Veniam eu
+            consectetur aliqua eu pariatur. Fugiat dolor aliqua reprehenderit
+            adipisicing excepteur ad.
+          </div>
+          <div className="message-outgoing">
+            Mollit officia aliqua reprehenderit tempor aliqua ex nostrud magna
+            culpa magna ad elit. Ad proident ad incididunt velit. Veniam eu
+            consectetur aliqua eu pariatur. Fugiat dolor aliqua reprehenderit
+            adipisicing excepteur ad.
+          </div>
+          <div className="message-incoming">
+            Mollit officia aliqua reprehenderit tempor aliqua ex nostrud magna
+            culpa magna ad elit. Ad proident ad incididunt velit. Veniam eu
+            consectetur aliqua eu pariatur. Fugiat dolor aliqua reprehenderit
+            adipisicing excepteur ad.
+          </div>
+        </div>
         <div className="chatscreen__inputs">
           <div className="chatscreen__buttons">
             <button className="icon-button">

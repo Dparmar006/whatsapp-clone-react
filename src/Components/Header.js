@@ -1,16 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import Avatar from "avataaars";
 import "./Header.css";
 const Header = ({ name = "Someone ♥" }) => {
+  // const [avatar, setAvatar] = useState({});
+
   return (
     <header className="header">
       <div className="header__left">
         <div className="header__dp">
-          <i class="fas fa-user-circle"></i>
+          <Avatar
+            style={{ width: "50px", height: "50px" }}
+            avatarStyle="Circle"
+            topType="LongHairMiaWallace"
+            accessoriesType="Prescription02"
+            hairColor="BrownDark"
+            facialHairType="Blank"
+            clotheType="Hoodie"
+            clotheColor="PastelBlue"
+            eyeType="Happy"
+            eyebrowType="Default"
+            mouthType="Smile"
+            skinColor="Light"
+          />
         </div>
         <div className="buttons">
-          <button className="icon-button">
-            <i class="fas fa-circle-notch"></i>
-          </button>
+          <button className="icon-button"></button>
           <button className="icon-button">
             <i class="far fa-envelope"></i>
           </button>

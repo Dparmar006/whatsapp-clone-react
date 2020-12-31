@@ -6,6 +6,45 @@
   height: 90vh;
   display: grid;
 }
+
+.chatscreen__message-container {
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  color: #ddd;
+}
+.chatscreen__message-container::-webkit-scrollbar {
+  width: 7px;
+}
+.chatscreen__message-container::-webkit-scrollbar-thumb {
+  background-color: rgba(31, 31, 31, 1);
+  border-radius: 6px;
+}
+.chatscreen__message-container::-webkit-scrollbar-track {
+  background-color: #111;
+}
+
+.message-incoming {
+  background-color: #262d31;
+  margin: 1em 0;
+  padding: 0.8em;
+  border-radius: 8px;
+  border-top-left-radius: 0px;
+  max-width: 24em;
+  align-self: flex-start;
+}
+
+.message-outgoing {
+  background-color: #056162;
+  margin: 1em 0;
+  padding: 0.8em;
+  border-radius: 8px;
+  border-top-right-radius: 0px;
+  max-width: 24em;
+  align-self: flex-end;
+}
+
 .chatscreen__inputs {
   display: flex;
   align-self: end;

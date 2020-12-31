@@ -12,6 +12,7 @@ function App() {
         <ChatList />
         <ChatScreen />
       </main>
+      <div></div>
     </div>
   );
 }
