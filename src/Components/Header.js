@@ -1,47 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Avatar from "avataaars";
 import "./Header.css";
-const Header = ({ name = "Someone ♥" }) => {
-  // const [avatar, setAvatar] = useState({});
+import db from "../firebase";
+import { useParams } from "react-router-dom";
+import HeaderLeft from "./HeaderLeft";
+const Header = () => {
+  const [roomName, setRoomName] = useState("");
 
+  const { roomId } = useParams();
+
+  useEffect(() => {
+    if (roomId) {
+      db.collection("whatsapp-rooms")
+        .doc(roomId)
+        .onSnapshot((snapshot) => setRoomName(snapshot.data().name));
+    }
+  }, [roomId]);
+  console.log(roomId);
   const addRoomButtonHandle = () => {
     const roomId = prompt("Enter room Id");
   };
   return (
     <header className="header">
-      <div className="header__left">
-        <div className="header__dp">
-          <Avatar
-            style={{ width: "50px", height: "50px" }}
-            avatarStyle="Circle"
-            topType="LongHairMiaWallace"
-            accessoriesType="Prescription02"
-            hairColor="BrownDark"
-            facialHairType="Blank"
-            clotheType="Hoodie"
-            clotheColor="PastelBlue"
-            eyeType="Happy"
-            eyebrowType="Default"
-            mouthType="Smile"
-            skinColor="Light"
-          />
-        </div>
-        <div className="buttons">
-          <button className="icon-button"></button>
-          <button className="icon-button" onClick={addRoomButtonHandle}>
-            <i class="far fa-envelope"></i>
-          </button>
-          <button className="icon-button">
-            <i class="fas fa-ellipsis-v"></i>
-          </button>
-        </div>
-      </div>
+      <HeaderLeft />
       <div className="header__right">
         <div className="header__personinfo">
           <div className="header__dp">
             <i class="fas fa-user-circle"></i>
           </div>
-          <div className="header__personname">{name}</div>
+          <div className="header__personname">{roomName}</div>
         </div>
         <div className="buttons">
           <button className="icon-button">

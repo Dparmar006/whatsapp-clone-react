@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
 import "./ChatScreen.css";
-const ChatScreen = ({ name }) => {
+const ChatScreen = () => {
   const [message, setMessage] = useState("");
 
   const sendMessage = (e) => {

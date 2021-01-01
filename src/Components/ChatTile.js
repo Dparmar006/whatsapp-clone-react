@@ -1,5 +1,6 @@
 import Avatar from "avataaars";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import avatarParams from "../avatarParams";
 import "./ChatTile.css";
 
@@ -7,7 +8,7 @@ const ChatTile = ({
   senderName = "Someone 🖤",
   msg = "Invalid message",
   time = "12:00 AM",
-
+  id = "",
   msgStatus = "far fa-check-circle",
 }) => {
   // console.log(avatarParams.skinColor[]);
@@ -50,7 +51,6 @@ const ChatTile = ({
         avatarParams.clotheColor[
           Math.floor(Math.random() * avatarParams.clotheColor.length)
         ],
-
       eyeType:
         avatarParams.eyeType[
           Math.floor(Math.random() * avatarParams.eyeType.length)
@@ -71,32 +71,34 @@ const ChatTile = ({
   }, []);
 
   return (
-    <div className="tile">
-      <div className="tile-dp">
-        <Avatar
-          style={{ width: "50px", height: "50px" }}
-          avatarStyle="Circle"
-          topType={avatar.topType}
-          accessoriesType={avatar.accessoriesType}
-          hairColor={avatar.hairColor}
-          facialHairType={avatar.facialHairType}
-          clotheType={avatar.clotheType}
-          clotheColor={avatar.clotheColor}
-          eyeType={avatar.eyeType}
-          eyebrowType={avatar.eyebrowType}
-          mouthType={avatar.mouthType}
-          skinColor={avatar.skinColor}
-        />
+    <Link to={`/room/${id}`}>
+      <div className="tile">
+        <div className="tile-dp">
+          <Avatar
+            style={{ width: "50px", height: "50px" }}
+            avatarStyle="Circle"
+            topType={avatar.topType}
+            accessoriesType={avatar.accessoriesType}
+            hairColor={avatar.hairColor}
+            facialHairType={avatar.facialHairType}
+            clotheType={avatar.clotheType}
+            clotheColor={avatar.clotheColor}
+            eyeType={avatar.eyeType}
+            eyebrowType={avatar.eyebrowType}
+            mouthType={avatar.mouthType}
+            skinColor={avatar.skinColor}
+          />
+        </div>
+        <div className="tile-msginfo">
+          <p className="tile-name">{senderName}</p>
+          <p className="tile-message">
+            <i class={msgStatus}></i>
+            {msg}
+          </p>
+        </div>
+        <p className="tile-time">{time}</p>
       </div>
-      <div className="tile-msginfo">
-        <p className="tile-name">{senderName}</p>
-        <p className="tile-message">
-          <i class={msgStatus}></i>
-          {msg}
-        </p>
-      </div>
-      <p className="tile-time">{time}</p>
-    </div>
+    </Link>
   );
 };
 
