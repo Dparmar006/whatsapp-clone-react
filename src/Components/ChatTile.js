@@ -7,7 +7,7 @@ const ChatTile = ({
   senderName = "Someone 🖤",
   msg = "Invalid message",
   time = "12:00 AM",
-  senderDp,
+
   msgStatus = "far fa-check-circle",
 }) => {
   // console.log(avatarParams.skinColor[]);
@@ -84,7 +84,7 @@ const ChatTile = ({
           clotheColor={avatar.clotheColor}
           eyeType={avatar.eyeType}
           eyebrowType={avatar.eyebrowType}
-          mouthType="Smile"
+          mouthType={avatar.mouthType}
           skinColor={avatar.skinColor}
         />
       </div>

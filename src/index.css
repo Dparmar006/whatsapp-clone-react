@@ -26,3 +26,22 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-track {
   background-color: #111;
 }
+
+.icon-button {
+  background: none;
+  outline: none;
+  padding: 0.4em;
+  /* margin-left: 0.5rem; */
+  color: #ddd;
+  border-radius: 50%;
+  border: none;
+  transition: all 0.3s;
+  font-size: 1.01rem;
+  cursor: pointer;
+  height: 2.3em;
+  width: 2.3em;
+}
+.icon-button:active,
+.icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.082);
+}

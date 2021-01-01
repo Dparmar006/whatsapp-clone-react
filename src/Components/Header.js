@@ -4,6 +4,9 @@ import "./Header.css";
 const Header = ({ name = "Someone ♥" }) => {
   // const [avatar, setAvatar] = useState({});
 
+  const addRoomButtonHandle = () => {
+    const roomId = prompt("Enter room Id");
+  };
   return (
     <header className="header">
       <div className="header__left">
@@ -25,7 +28,7 @@ const Header = ({ name = "Someone ♥" }) => {
         </div>
         <div className="buttons">
           <button className="icon-button"></button>
-          <button className="icon-button">
+          <button className="icon-button" onClick={addRoomButtonHandle}>
             <i class="far fa-envelope"></i>
           </button>
           <button className="icon-button">
