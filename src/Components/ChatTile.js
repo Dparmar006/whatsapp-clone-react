@@ -2,15 +2,17 @@ import Avatar from "avataaars";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import avatarParams from "../avatarParams";
+import db from "../firebase";
 import "./ChatTile.css";
 
 const ChatTile = ({
   senderName = "Someone 🖤",
-  msg = "Invalid message",
+
   time = "12:00 AM",
   id = "",
   msgStatus = "far fa-check-circle",
 }) => {
+  const [roomMessages, setRoomMessages] = useState([]);
   // console.log(avatarParams.skinColor[]);
   const [avatar, setAvatar] = useState({
     topType: "",
@@ -24,6 +26,18 @@ const ChatTile = ({
     mouthType: "",
     skinColor: "",
   });
+
+  useEffect(() => {
+    if (id) {
+      db.collection("whatsapp-rooms")
+        .doc(id)
+        .collection("messages")
+        .orderBy("timestamp", "desc")
+        .onSnapshot((snapshot) =>
+          setRoomMessages(snapshot.docs.map((doc) => doc.data()))
+        );
+    }
+  }, []);
 
   useEffect(() => {
     setAvatar({
@@ -93,7 +107,7 @@ const ChatTile = ({
           <p className="tile-name">{senderName}</p>
           <p className="tile-message">
             <i class={msgStatus}></i>
-            {msg}
+            {roomMessages[0]?.messages || ""}
           </p>
         </div>
         <p className="tile-time">{time}</p>
