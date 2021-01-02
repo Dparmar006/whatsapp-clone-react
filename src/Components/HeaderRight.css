@@ -1,0 +1,15 @@
+.header__right {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4em 1.2em;
+  background-color: #2a2f32;
+  align-items: center;
+  box-shadow: 0px 4px 14px rgba(255, 255, 255, 0.007);
+}
+
+.header__personinfo {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  color: #ddd;
+}

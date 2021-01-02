@@ -1,6 +1,6 @@
 import React from "react";
 import ChatList from "./Components/ChatList";
-import Header from "./Components/Header";
+
 import "./App.css";
 import ChatScreen from "./Components/ChatScreen";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <Header />
         <main>
           <ChatList />
           <Switch>

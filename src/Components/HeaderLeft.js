@@ -1,12 +1,13 @@
-import { Avatar } from "avataaars";
+import Avatar from "avataaars";
 import React from "react";
+import "./HeaderLeft.css";
 
 const HeaderLeft = () => {
   return (
     <div className="header__left">
       <div className="header__dp">
         <Avatar
-          style={{ width: "50px", height: "50px" }}
+          style={{ width: "40px", height: "40px" }}
           avatarStyle="Circle"
           topType="LongHairMiaWallace"
           accessoriesType="Prescription02"

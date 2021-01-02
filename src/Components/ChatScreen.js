@@ -1,9 +1,21 @@
 import React, { useEffect, useState } from "react";
-
+import HeaderRight from "./HeaderRight";
+import db from "../firebase";
 import "./ChatScreen.css";
+import { useParams } from "react-router-dom";
 const ChatScreen = () => {
   const [message, setMessage] = useState("");
+  const [roomName, setRoomName] = useState("");
 
+  const { roomId } = useParams();
+
+  useEffect(() => {
+    db.collection("whatsapp-rooms")
+      .doc(roomId)
+      .onSnapshot((snapshot) => {
+        setRoomName(snapshot.data().name);
+      });
+  }, [roomId]);
   const sendMessage = (e) => {
     e.preventDefault();
     console.log("message", message);
@@ -12,6 +24,8 @@ const ChatScreen = () => {
 
   return (
     <section className="chatscreen">
+      <HeaderRight roomName={roomName} />
+
       <div className="chatscreen__container">
         <div className="chatscreen__message-container">
           <div className="message-incoming">Hello</div>

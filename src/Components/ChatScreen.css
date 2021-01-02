@@ -1,5 +1,5 @@
 .chatscreen {
-  height: 100%;
+  height: 90vh;
   width: 100%;
 }
 .chatscreen__container {
@@ -8,7 +8,7 @@
 }
 
 .chatscreen__message-container {
-  padding: 3em;
+  padding: 4em;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
@@ -33,6 +33,7 @@
   border-top-left-radius: 0px;
   max-width: 24em;
   align-self: flex-start;
+  box-shadow: 0px 4px 14px rgba(255, 255, 255, 0.007);
 }
 
 .message-outgoing {
@@ -43,6 +44,7 @@
   border-top-right-radius: 0px;
   max-width: 24em;
   align-self: flex-end;
+  box-shadow: 0px 4px 14px rgba(255, 255, 255, 0.007);
 }
 
 .chatscreen__inputs {

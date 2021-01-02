@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import db from "../firebase";
 import "./ChatList.css";
+
 import ChatTile from "./ChatTile";
+import HeaderLeft from "./HeaderLeft";
 
 const ChatList = () => {
   const [rooms, setRooms] = useState([]);
@@ -32,6 +34,8 @@ const ChatList = () => {
   console.log(rooms);
   return (
     <div className="chatlist">
+      <HeaderLeft />
+
       <div className="chatlist__addroom">
         <button className="icon-button room-input__cancel">
           <i class="fas fa-times"></i>
