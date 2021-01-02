@@ -55,7 +55,7 @@
   background-color: #2a2f32;
 }
 .chatscreen__buttons .icon-button {
-  font-size: 1.5em;
+  font-size: 1.3em;
   padding: 0.5em;
   color: #828689;
 }
@@ -74,6 +74,12 @@
 .send-button {
   background-color: #056162;
   margin: 0 4px;
-  color: #ddd;
+  color: #fff;
+  /* display: none; */
+}
+.send-button:hover {
+  background-color: #ddd;
+
+  color: #056162;
   /* display: none; */
 }

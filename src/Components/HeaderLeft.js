@@ -1,7 +1,6 @@
 import Avatar from "avataaars";
 import React from "react";
 import "./HeaderLeft.css";
-
 const HeaderLeft = () => {
   return (
     <div className="header__left">
@@ -22,7 +21,9 @@ const HeaderLeft = () => {
         />
       </div>
       <div className="buttons">
-        <button className="icon-button"></button>
+        <button className="icon-button">
+          <i class="fas fa-circle-notch"></i>
+        </button>
         <button className="icon-button">
           <i class="far fa-envelope"></i>
         </button>
