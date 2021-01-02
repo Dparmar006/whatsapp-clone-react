@@ -8,7 +8,7 @@
 }
 
 .chatscreen__message-container {
-  padding: 4em;
+  padding: 2em 8em;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;

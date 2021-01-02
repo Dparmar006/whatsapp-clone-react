@@ -1,24 +1,13 @@
 import Avatar from "avataaars";
 import React from "react";
+import { useStateValue } from "../StateProvider";
 import "./HeaderLeft.css";
 const HeaderLeft = () => {
+  const [{ user }, dispatch] = useStateValue();
   return (
     <div className="header__left">
-      <div className="header__dp">
-        <Avatar
-          style={{ width: "40px", height: "40px" }}
-          avatarStyle="Circle"
-          topType="LongHairMiaWallace"
-          accessoriesType="Prescription02"
-          hairColor="BrownDark"
-          facialHairType="Blank"
-          clotheType="Hoodie"
-          clotheColor="PastelBlue"
-          eyeType="Happy"
-          eyebrowType="Default"
-          mouthType="Smile"
-          skinColor="Light"
-        />
+      <div className="header__dp-container">
+        <img src={user?.photoURL} className="header__left-dp" />
       </div>
       <div className="buttons">
         <button className="icon-button">

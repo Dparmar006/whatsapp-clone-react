@@ -3,10 +3,14 @@ import HeaderRight from "./HeaderRight";
 import db from "../firebase";
 import "./ChatScreen.css";
 import { useParams } from "react-router-dom";
-const ChatScreen = () => {
-  const [message, setMessage] = useState("");
-  const [roomName, setRoomName] = useState("");
+import { useStateValue } from "../StateProvider";
+import firebase from "firebase";
 
+const ChatScreen = () => {
+  const [messageInput, setMessageInput] = useState("");
+  const [roomName, setRoomName] = useState("");
+  const [roomMessages, setRoomMessages] = useState([]);
+  const [{ user }, dispatch] = useStateValue();
   const { roomId } = useParams();
 
   useEffect(() => {
@@ -15,45 +19,41 @@ const ChatScreen = () => {
       .onSnapshot((snapshot) => {
         setRoomName(snapshot.data().name);
       });
+
+    db.collection("whatsapp-rooms")
+      .doc(roomId)
+      .collection("messages")
+      .orderBy("timestamp", "asc")
+      .onSnapshot((snapshot) =>
+        setRoomMessages(snapshot.docs.map((doc) => doc.data()))
+      );
   }, [roomId]);
   const sendMessage = (e) => {
     e.preventDefault();
-    console.log("message", message);
-    setMessage("");
+    db.collection("whatsapp-rooms").doc(roomId).collection("messages").add({
+      name: user.displayName,
+      messages: messageInput,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+    setMessageInput("");
   };
-
+  console.log(roomMessages);
   return (
     <section className="chatscreen">
       <HeaderRight roomName={roomName} />
 
       <div className="chatscreen__container">
         <div className="chatscreen__message-container">
-          <div className="message-incoming">Hello</div>
-          <div className="message-incoming">
-            Mollit officia aliqua reprehenderit tempor aliqua ex nostrud magna
-            culpa magna ad elit. Ad proident ad incididunt velit. Veniam eu
-            consectetur aliqua eu pariatur. Fugiat dolor aliqua reprehenderit
-            adipisicing excepteur ad.
-          </div>
-          <div className="message-outgoing">Hello</div>
-          <div className="message-outgoing">
-            Mollit officia aliqua reprehenderit tempor aliqua ex nostrud magna
-            culpa magna ad elit. Ad proident ad incididunt velit. Veniam eu
-            consectetur aliqua eu pariatur. Fugiat dolor aliqua reprehenderit
-            adipisicing excepteur ad.
-          </div>
-          <div className="message-outgoing">
-            Mollit officia aliqua reprehenderit tempor aliqua ex nostrud magna
-            culpa magna ad elit. Ad proident ad incididunt velit. Veniam eu
-            consectetur aliqua eu pariatur. Fugiat dolor aliqua reprehenderit
-            adipisicing excepteur ad.
-          </div>
-          <div className="message-incoming">
-            Mollit officia aliqua reprehenderit tempor aliqua ex nostrud magna
-            culpa magna ad elit. Ad proident ad incididunt velit. Veniam eu
-            consectetur aliqua eu pariatur. Fugiat dolor aliqua reprehenderit
-            adipisicing excepteur ad.
-          </div>
+          {roomMessages.map((message) => (
+            <div
+              className={`${
+                message.name === user.displayName && "message-outgoing"
+              }
+               ${message.name !== user.displayName && "message-incoming"}`}
+            >
+              {message.messages}
+            </div>
+          ))}
         </div>
         <form className="chatscreen__inputs">
           <div className="chatscreen__buttons">
@@ -66,9 +66,9 @@ const ChatScreen = () => {
           </div>
           <input
             type="text"
-            value={message}
+            value={messageInput}
             onChange={(event) => {
-              setMessage(event.target.value);
+              setMessageInput(event.target.value);
             }}
             placeholder="Type a message"
             className="chatscreen__chat-input"
