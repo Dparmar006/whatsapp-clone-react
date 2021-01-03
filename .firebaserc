@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "d-clones": {
+      "hosting": {
+        "whatsapp-clone": [
+          "d-messages"
+        ]
+      }
+    }
+  }
+}
