@@ -81,9 +81,9 @@ const ChatScreen = () => {
             >
               <i class="fas fa-paper-plane"></i>
             </button>
-            <button className="icon-button" type="button">
+            {/* <button className="icon-button" type="button">
               <i class="fas fa-microphone"></i>
-            </button>
+            </button> */}
           </div>
         </form>
       </div>

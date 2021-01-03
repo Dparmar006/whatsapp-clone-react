@@ -65,14 +65,7 @@ const PageNotFound = () => {
   const [{ user }, dispatch] = useStateValue();
   console.log(user);
   return (
-    <section
-      className="pagenotfound"
-      style={{
-        width: "75%",
-        display: "grid",
-        placeItems: "center",
-      }}
-    >
+    <section className="pagenotfound">
       <Avatar
         style={{ width: "400px", height: "400px" }}
         avatarStyle="Circle"
