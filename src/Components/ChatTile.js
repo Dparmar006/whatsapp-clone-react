@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import avatarParams from "../avatarParams";
 import db from "../firebase";
+import { getShortMessage } from "../functions/utilities";
 import "./ChatTile.css";
 
 const ChatTile = ({
@@ -107,7 +108,7 @@ const ChatTile = ({
           <p className="tile-name">{senderName}</p>
           <p className="tile-message">
             <i class={msgStatus}></i>
-            {roomMessages[0]?.messages || ""}
+            {getShortMessage(roomMessages[0]?.messages || "", 25)}
           </p>
         </div>
         <p className="tile-time">{time}</p>

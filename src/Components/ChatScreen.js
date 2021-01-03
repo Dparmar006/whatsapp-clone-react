@@ -30,12 +30,14 @@ const ChatScreen = () => {
   }, [roomId]);
   const sendMessage = (e) => {
     e.preventDefault();
-    db.collection("whatsapp-rooms").doc(roomId).collection("messages").add({
-      name: user.displayName,
-      messages: messageInput,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
-    setMessageInput("");
+    if (messageInput !== "") {
+      db.collection("whatsapp-rooms").doc(roomId).collection("messages").add({
+        name: user.displayName,
+        messages: messageInput,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      });
+      setMessageInput("");
+    }
   };
   console.log(roomMessages);
   return (
@@ -51,7 +53,8 @@ const ChatScreen = () => {
               }
                ${message.name !== user.displayName && "message-incoming"}`}
             >
-              {message.messages}
+              <p className="message-container__display-name">{message?.name}</p>
+              {message?.messages}
             </div>
           ))}
         </div>

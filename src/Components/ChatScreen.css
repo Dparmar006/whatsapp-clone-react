@@ -37,6 +37,7 @@
 }
 
 .message-outgoing {
+  position: relative;
   background-color: #056162;
   margin: 1em 0;
   padding: 0.8em;
@@ -46,7 +47,13 @@
   align-self: flex-end;
   box-shadow: 0px 4px 14px rgba(255, 255, 255, 0.007);
 }
-
+.message-container__display-name {
+  top: -6px;
+  margin-bottom: 4px;
+  margin-top: 0;
+  font-size: 0.8rem;
+  color: #828689;
+}
 .chatscreen__inputs {
   display: flex;
   align-self: end;
