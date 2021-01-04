@@ -1,3 +1,3 @@
 # Whatsapp clone
-
-## a clone with random avatar generation and suggest topics to talk about
+(a link)[Check out here]
+## a clone with random avatar generation. 
