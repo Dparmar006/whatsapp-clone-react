@@ -4,7 +4,16 @@ const HeaderRight = ({ roomName, dp }) => {
   return (
     <div className="header__right">
       <div className="header__personinfo">
-        <div className="header__dp">
+        <div
+          className="header__dp"
+          onClick={() => {
+            const mobChatList = document.getElementsByClassName(
+              "hidden-mobile-chatlist"
+            );
+
+            // mobChatList[0]
+          }}
+        >
           <i class="fas fa-user-circle"></i>
         </div>
         <div className="header__personname">{roomName}</div>

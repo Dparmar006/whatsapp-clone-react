@@ -111,7 +111,11 @@ const ChatTile = ({
             {getShortMessage(roomMessages[0]?.messages || "", 25)}
           </p>
         </div>
-        <p className="tile-time">{time}</p>
+        <p className="tile-time">
+          {/* {new Date(
+            roomMessages[0]?.timestamp?.toDate().getDate()
+          ).toUTCString()} */}
+        </p>
       </div>
     </Link>
   );

@@ -5,6 +5,7 @@ import "./ChatScreen.css";
 import { useParams } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 import firebase from "firebase";
+import ChatList from "./ChatList";
 
 const ChatScreen = () => {
   const [messageInput, setMessageInput] = useState("");
@@ -53,7 +54,10 @@ const ChatScreen = () => {
               }
                ${message.name !== user.displayName && "message-incoming"}`}
             >
-              <p className="message-container__display-name">{message?.name}</p>
+              <p className="message-container__display-name">
+                {new Date(message.timestamp?.toDate()).toUTCString()}{" "}
+                {message?.name}
+              </p>
               {message?.messages}
             </div>
           ))}

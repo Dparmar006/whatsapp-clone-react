@@ -9,10 +9,12 @@ const ChatList = () => {
   const [rooms, setRooms] = useState([]);
   const [roomName, setRoomName] = useState("");
   const submitRoomName = () => {
-    db.collection("whatsapp-rooms").add({
-      name: roomName,
-    });
-    setRoomName("");
+    if (roomName !== "") {
+      db.collection("whatsapp-rooms").add({
+        name: roomName,
+      });
+      setRoomName("");
+    }
   };
   useEffect(() => {
     const unsubscribeDBSession = db
@@ -37,25 +39,21 @@ const ChatList = () => {
       <HeaderLeft />
 
       <div className="chatlist__addroom">
-        <button className="icon-button room-input__cancel">
-          <i class="fas fa-times"></i>
+        <button
+          onClick={submitRoomName}
+          className="icon-button room-input__add send-button"
+        >
+          <i class="fas fa-plus"></i>
         </button>
         <input
           type="text"
           className="chatlist__room-input"
-          placeholder="Enter room Id"
+          placeholder="Create group"
           value={roomName}
           onChange={(e) => {
             setRoomName(e.target.value);
           }}
         />
-
-        <button
-          onClick={submitRoomName}
-          className="icon-button room-input__add"
-        >
-          <i class="fas fa-plus"></i>
-        </button>
       </div>
 
       {rooms.map((room) => (
