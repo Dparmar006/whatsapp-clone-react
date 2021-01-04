@@ -13,8 +13,12 @@ const HeaderRight = ({ roomName, dp }) => {
         <button className="icon-button">
           <i class="fas fa-search"></i>
         </button>
+
         <button className="icon-button">
           <i class="fas fa-ellipsis-v"></i>
+        </button>
+        <button className="icon-button" onClick>
+          <i class="fas fa-address-card"></i>
         </button>
       </div>
     </div>

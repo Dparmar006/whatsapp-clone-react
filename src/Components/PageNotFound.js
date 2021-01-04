@@ -2,7 +2,8 @@ import Avatar from "avataaars";
 import React, { useEffect, useState } from "react";
 import avatarParams from "../avatarParams";
 import { useStateValue } from "../StateProvider";
-
+import HeaderRight from "./HeaderRight";
+import "./PageNotFound.css";
 const PageNotFound = () => {
   const [avatar, setAvatar] = useState({
     topType: "",
@@ -63,27 +64,32 @@ const PageNotFound = () => {
   }, []);
 
   const [{ user }, dispatch] = useStateValue();
-  console.log(user);
+
   return (
-    <section className="pagenotfound">
-      <Avatar
-        style={{ width: "400px", height: "400px" }}
-        avatarStyle="Circle"
-        topType={avatar.topType}
-        accessoriesType={avatar.accessoriesType}
-        hairColor={avatar.hairColor}
-        facialHairType={avatar.facialHairType}
-        clotheType={avatar.clotheType}
-        clotheColor={avatar.clotheColor}
-        eyeType={avatar.eyeType}
-        eyebrowType={avatar.eyebrowType}
-        mouthType={avatar.mouthType}
-        skinColor={avatar.skinColor}
-      />
-      <h2 style={{ color: "whitesmoke" }}>
-        Uff !!! {user.displayName.split(" ")[0]}, You look cool, Enjoy !
-      </h2>
-    </section>
+    <div style={{ width: "100%" }} id="main-div">
+      <HeaderRight />
+      <section className="pagenotfound">
+        <div className="pagenotfound__container">
+          <Avatar
+            style={{ width: "200px", height: "200px" }}
+            avatarStyle="Circle"
+            topType={avatar.topType}
+            accessoriesType={avatar.accessoriesType}
+            hairColor={avatar.hairColor}
+            facialHairType={avatar.facialHairType}
+            clotheType={avatar.clotheType}
+            clotheColor={avatar.clotheColor}
+            eyeType={avatar.eyeType}
+            eyebrowType={avatar.eyebrowType}
+            mouthType={avatar.mouthType}
+            skinColor={avatar.skinColor}
+          />
+          <h2 style={{ color: "whitesmoke" }}>
+            Uff !!! {user.displayName.split(" ")[0]}, You look cool, Enjoy !
+          </h2>
+        </div>
+      </section>
+    </div>
   );
 };
 

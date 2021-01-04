@@ -1,5 +1,20 @@
 .pagenotfound {
-  width: 75%;
   display: grid;
-  placeitems: center;
+  place-items: center;
+  width: 100%;
+}
+.pagenotfound > .header__right {
+  width: 75%;
+  height: 8vh;
+}
+.pagenotfound__container {
+  display: grid;
+  place-items: center;
+  margin: 1em;
+  text-align: center;
+}
+@media screen and (max-width: 500px) {
+  .pagenotfound {
+    width: 100%;
+  }
 }
