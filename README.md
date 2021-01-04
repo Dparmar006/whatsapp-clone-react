@@ -1,3 +1,3 @@
 # Whatsapp clone
-(a link)[Check out here]
-## a clone with random avatar generation. 
+[Check out here](https://d-messages.web.app)
+## a clone with random avatar generation. Google authentication and deployed with firebase.
