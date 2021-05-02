@@ -1,8 +1,8 @@
 # Whatsapp clone
 [Check out here](https://d-messages.web.app)
 ## Firebase Gmail authentication
-[signup-image](https://github.com/Dparmar006/whatsapp-clone-react/blob/master/images/signup.png)
+[signup-image](https://github.com/Dparmar006/whatsapp-clone-react/blob/master/public/images/signup.png)
 ## Homepage
-[home-image](https://github.com/Dparmar006/whatsapp-clone-react/blob/master/images/home.png)
+[home-image](https://github.com/Dparmar006/whatsapp-clone-react/blob/master/public/images/home.png)
 ## Chatscreen
-[chat-image](https://github.com/Dparmar006/whatsapp-clone-react/blob/master/images/chat.png)
+[chat-image](https://github.com/Dparmar006/whatsapp-clone-react/blob/master/public/images/chat.png)
