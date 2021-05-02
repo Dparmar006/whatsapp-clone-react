@@ -4,16 +4,7 @@ const HeaderRight = ({ roomName, dp }) => {
   return (
     <div className="header__right">
       <div className="header__personinfo">
-        <div
-          className="header__dp"
-          onClick={() => {
-            const mobChatList = document.getElementsByClassName(
-              "hidden-mobile-chatlist"
-            );
-
-            // mobChatList[0]
-          }}
-        >
+        <div className="header__dp">
           <i class="fas fa-user-circle"></i>
         </div>
         <div className="header__personname">{roomName}</div>
@@ -26,9 +17,9 @@ const HeaderRight = ({ roomName, dp }) => {
         <button className="icon-button">
           <i class="fas fa-ellipsis-v"></i>
         </button>
-        <button className="icon-button" onClick>
+        {/* <button className="icon-button" onClick>
           <i class="fas fa-address-card"></i>
-        </button>
+        </button> */}
       </div>
     </div>
   );

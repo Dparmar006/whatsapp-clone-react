@@ -6,14 +6,18 @@ main {
   min-width: 25%;
 }
 .chatscreen {
-  height: 90vh;
+  height: 100vh;
   width: 75%;
 }
 
 @media screen and (max-width: 1000px) {
+  .chatscreen {
+    height: 90vh;
+  }
   .chatlist {
-    display: none;
-    pointer-events: none;
-    opacity: none;
+    min-width: 12em;
+  }
+  body {
+    overflow-x: scroll;
   }
 }

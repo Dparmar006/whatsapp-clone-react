@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ChatList from "./Components/ChatList";
 
 import "./App.css";
@@ -9,7 +9,7 @@ import LoginPage from "./LoginPage";
 import { useStateValue } from "./StateProvider";
 
 function App() {
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
 
   return (
     <div className="app">

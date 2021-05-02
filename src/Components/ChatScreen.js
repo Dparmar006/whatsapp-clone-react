@@ -5,13 +5,12 @@ import "./ChatScreen.css";
 import { useParams } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 import firebase from "firebase";
-import ChatList from "./ChatList";
 
 const ChatScreen = () => {
   const [messageInput, setMessageInput] = useState("");
   const [roomName, setRoomName] = useState("");
   const [roomMessages, setRoomMessages] = useState([]);
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
   const { roomId } = useParams();
 
   useEffect(() => {
@@ -40,7 +39,7 @@ const ChatScreen = () => {
       setMessageInput("");
     }
   };
-  console.log(roomMessages);
+  // console.log(roomMessages);
   return (
     <section className="chatscreen">
       <HeaderRight roomName={roomName} />
@@ -50,7 +49,7 @@ const ChatScreen = () => {
           {roomMessages.map((message) => (
             <div
               className={`${
-                message.name === user.displayName && "message-outgoing"
+                message.name == user.displayName && "message-outgoing"
               }
                ${message.name !== user.displayName && "message-incoming"}`}
             >
@@ -67,9 +66,9 @@ const ChatScreen = () => {
             <button className="icon-button" type="button">
               <i class="fas fa-grin-alt"></i>
             </button>
-            <button className="icon-button" type="button">
+            {/* <button className="icon-button" type="button">
               <i class="fas fa-paperclip"></i>
-            </button>
+            </button> */}
           </div>
           <input
             type="text"

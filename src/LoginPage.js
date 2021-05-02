@@ -15,7 +15,7 @@ const LoginPage = () => {
           user: result.user,
         });
       })
-      .catch((error) => alert(error.message));
+      .catch((error) => alert("error occured"));
   };
   return (
     <section className="login">

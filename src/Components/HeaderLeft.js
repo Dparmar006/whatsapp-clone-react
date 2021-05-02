@@ -1,9 +1,8 @@
-import Avatar from "avataaars";
 import React from "react";
 import { useStateValue } from "../StateProvider";
 import "./HeaderLeft.css";
 const HeaderLeft = () => {
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
   return (
     <div className="header__left">
       <div className="header__dp-container">

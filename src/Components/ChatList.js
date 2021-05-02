@@ -33,7 +33,7 @@ const ChatList = () => {
     };
   }, []);
 
-  console.log(rooms);
+  // console.log(rooms);
   return (
     <div className="chatlist">
       <HeaderLeft />

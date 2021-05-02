@@ -63,7 +63,7 @@ const PageNotFound = () => {
     });
   }, []);
 
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
 
   return (
     <div style={{ width: "100%" }} id="main-div">
