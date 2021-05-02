@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import db from "../firebase";
 import "./ChatList.css";
 
@@ -33,7 +34,6 @@ const ChatList = () => {
     };
   }, []);
 
-  // console.log(rooms);
   return (
     <div className="chatlist">
       <HeaderLeft />

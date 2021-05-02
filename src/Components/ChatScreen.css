@@ -70,7 +70,7 @@
 
 .chatscreen__chat-input {
   flex: 1;
-  padding: 0.6em;
+  padding: 0.6em 1.2em;
   margin: 0.6em 0.2em;
   outline: none;
   border: none;
@@ -78,6 +78,7 @@
   background-color: #33383b;
   color: #ddd;
   font-size: 1.04rem;
+
   z-index: 100;
 }
 

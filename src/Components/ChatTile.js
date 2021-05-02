@@ -1,9 +1,9 @@
 import Avatar from "avataaars";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import avatarParams from "../avatarParams";
 import db from "../firebase";
-import { getShortMessage } from "../functions/utilities";
+import { getRandomAvatar, getShortMessage } from "../functions/utilities";
+import { useStateValue } from "../StateProvider";
 import "./ChatTile.css";
 
 const ChatTile = ({
@@ -14,7 +14,7 @@ const ChatTile = ({
   msgStatus = "far fa-check-circle",
 }) => {
   const [roomMessages, setRoomMessages] = useState([]);
-  // console.log(avatarParams.skinColor[]);
+  const [{ activeRoom }] = useStateValue();
   const [avatar, setAvatar] = useState({
     topType: "",
     accessoriesType: "",
@@ -41,53 +41,12 @@ const ChatTile = ({
   }, []);
 
   useEffect(() => {
-    setAvatar({
-      topType:
-        avatarParams.topType[
-          Math.floor(Math.random() * avatarParams.topType.length)
-        ],
-      accessoriesType:
-        avatarParams.accessoriesType[
-          Math.floor(Math.random() * avatarParams.accessoriesType.length)
-        ],
-      hairColor:
-        avatarParams.hairColor[
-          Math.floor(Math.random() * avatarParams.hairColor.length)
-        ],
-      facialHairType:
-        avatarParams.facialHairType[
-          Math.floor(Math.random() * avatarParams.facialHairType.length)
-        ],
-      clotheType:
-        avatarParams.clotheType[
-          Math.floor(Math.random() * avatarParams.clotheType.length)
-        ],
-      clotheColor:
-        avatarParams.clotheColor[
-          Math.floor(Math.random() * avatarParams.clotheColor.length)
-        ],
-      eyeType:
-        avatarParams.eyeType[
-          Math.floor(Math.random() * avatarParams.eyeType.length)
-        ],
-      eyebrowType:
-        avatarParams.eyebrowType[
-          Math.floor(Math.random() * avatarParams.eyebrowType.length)
-        ],
-      mouthType:
-        avatarParams.mouthType[
-          Math.floor(Math.random() * avatarParams.mouthType.length)
-        ],
-      skinColor:
-        avatarParams.skinColor[
-          Math.floor(Math.random() * avatarParams.skinColor.length)
-        ],
-    });
+    setAvatar(getRandomAvatar());
   }, []);
-
+  console.log(activeRoom, id);
   return (
     <Link to={`/room/${id}`}>
-      <div className="tile">
+      <div className={activeRoom == id ? "tile activeTile" : "tile"}>
         <div className="tile-dp">
           <Avatar
             style={{ width: "50px", height: "50px" }}
@@ -112,9 +71,12 @@ const ChatTile = ({
           </p>
         </div>
         <p className="tile-time">
-          {/* {new Date(
+          {new Date(
             roomMessages[0]?.timestamp?.toDate().getDate()
-          ).toUTCString()} */}
+          ).toLocaleTimeString(undefined, {
+            hour: "2-digit",
+            minute: "numeric",
+          })}
         </p>
       </div>
     </Link>

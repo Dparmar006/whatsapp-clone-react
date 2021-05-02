@@ -7,7 +7,9 @@
   transition: all 250ms ease-in-out;
   cursor: pointer;
 }
-
+.activeTile {
+  background-color: #323739;
+}
 .tile:hover {
   background-color: #323739;
 }
