@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import db from "../firebase";
 import { getRandomAvatar, getShortMessage } from "../functions/utilities";
+import { actionTypes } from "../reducer";
 import { useStateValue } from "../StateProvider";
 import "./ChatTile.css";
 
@@ -14,7 +15,7 @@ const ChatTile = ({
   msgStatus = "far fa-check-circle",
 }) => {
   const [roomMessages, setRoomMessages] = useState([]);
-  const [{ activeRoom }] = useStateValue();
+  const [{ activeRoom }, dispatch] = useStateValue();
   const [avatar, setAvatar] = useState({
     topType: "",
     accessoriesType: "",
@@ -42,8 +43,27 @@ const ChatTile = ({
 
   useEffect(() => {
     setAvatar(getRandomAvatar());
-  }, []);
-  console.log(activeRoom, id);
+    dispatch({
+      type: actionTypes.SET_ROOM_AVATAR,
+      roomAvatar: (
+        <Avatar
+          style={{ width: "50px", height: "50px" }}
+          avatarStyle="Circle"
+          topType={avatar.topType}
+          accessoriesType={avatar.accessoriesType}
+          hairColor={avatar.hairColor}
+          facialHairType={avatar.facialHairType}
+          clotheType={avatar.clotheType}
+          clotheColor={avatar.clotheColor}
+          eyeType={avatar.eyeType}
+          eyebrowType={avatar.eyebrowType}
+          mouthType={avatar.mouthType}
+          skinColor={avatar.skinColor}
+        />
+      ),
+    });
+  }, [activeRoom]);
+
   return (
     <Link to={`/room/${id}`}>
       <div className={activeRoom == id ? "tile activeTile" : "tile"}>

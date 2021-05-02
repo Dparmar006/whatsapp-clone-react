@@ -1,12 +1,15 @@
+import Avatar from "avataaars";
 import React from "react";
+import { useStateValue } from "../StateProvider";
 import "./HeaderRight.css";
 const HeaderRight = ({ roomName, dp }) => {
+  const [{ roomAvatar }] = useStateValue();
+  console.log(roomAvatar);
+
   return (
     <div className="header__right">
       <div className="header__personinfo">
-        <div className="header__dp">
-          <i class="fas fa-user-circle"></i>
-        </div>
+        <div className="header__dp">{roomAvatar}</div>
         <div className="header__personname">{roomName}</div>
       </div>
       <div className="buttons">
